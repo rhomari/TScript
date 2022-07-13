@@ -1,0 +1,3 @@
+content = result.getStyle("font-family")
+console.print(content)
+result2.setText(content)

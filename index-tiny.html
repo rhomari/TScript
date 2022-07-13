@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="wasm-tiny.js"></script>
+    <title>TScript</title>
+    <style>
+        .myclass{
+            border-color: aquamarine;
+            border-style: dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button onclick="Execute()">Run</button>
+    <button id="btn" onclick="console.log('clicked')">Click here</button>
+    <div id="result" style="color:red; font-family: 'Courier New', Courier, monospace "><p>Some text here for test...</p></div>
+    <div id="result2">Hello TScript...</div>
+    <script language="tscript" src ="tscript.tsc">
+       
+       
+      
+        
+    </script>
+    <script>
+        
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("main-tiny.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+           
+    </script>
+</body>
+</html>
